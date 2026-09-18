@@ -22,12 +22,12 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Instalar Android 17 SDK Preview
+      - name: Instalar Android SDK estable
         shell: bash
         run: |
           SDKMANAGER="$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager"
           yes | "$SDKMANAGER" --licenses >/dev/null || true
-          "$SDKMANAGER" --channel=3 "platform-tools" "platforms;android-37" "build-tools;37.0.0"
+          "$SDKMANAGER" "platform-tools" "platforms;android-36" "build-tools;36.0.0"
 
       - name: Configurar Gradle 9.6
         uses: gradle/actions/setup-gradle@v4
